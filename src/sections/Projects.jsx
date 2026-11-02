@@ -15,7 +15,7 @@ export default function Projects() {
             <h2 className="mt-4 text-4xl font-medium tracking-[-0.05em] sm:text-6xl">Selected work</h2>
           </div>
           <p className="hidden max-w-xs text-right text-sm leading-relaxed text-muted md:block">
-            Four projects spanning travel planning, agriculture, climate modeling, and security.
+            Featured projects spanning travel planning and smart agriculture.
           </p>
         </div>
 
