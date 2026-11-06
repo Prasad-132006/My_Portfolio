@@ -46,6 +46,8 @@ export default function Navbar({ theme, toggleTheme }) {
   }, [mobileMenuOpen]);
 
   const handleNavClick = (href) => {
+    // Release the menu's scroll lock before starting a programmatic scroll.
+    document.body.style.overflow = '';
     setMobileMenuOpen(false);
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
@@ -88,7 +90,7 @@ export default function Navbar({ theme, toggleTheme }) {
                     handleNavClick(link.href);
                   }}
                   className={`label transition-colors ${
-                    isActive ? 'text-ink' : 'hover:text-ink'
+                    isActive ? 'text-ink' : 'text-ink/80 hover:text-ink'
                   }`}
                 >
                   {link.name}
@@ -148,6 +150,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 return (
                   <button
                     key={link.name}
+                    type="button"
                     onClick={() => handleNavClick(link.href)}
                     className={`border-b border-line py-4 text-left text-2xl tracking-tight ${
                       isActive ? 'text-ink' : 'text-muted'

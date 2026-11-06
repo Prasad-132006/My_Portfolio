@@ -12,7 +12,7 @@
 :root {
   --color-bg: #FAFAF8;
   --color-text: #171717;
-  --color-muted: #737373;
+  --color-muted: #62625C;
   --color-accent: #8A9A5B;
   --color-border: #E5E5E0;
 }
@@ -20,7 +20,7 @@
 :root.dark {
   --color-bg: #0B0B0A;
   --color-text: #F5F5F0;
-  --color-muted: #A1A19A;
+  --color-muted: #C0C0B8;
   --color-accent: #D7FF4F;
   --color-border: #292927;
 }
@@ -115,6 +115,16 @@ button {
   @apply py-24 md:py-32;
 }
 
+/* Keep section starts visible below the fixed navbar when navigating. */
+#projects,
+#about,
+#skills,
+#experience,
+#problem-solving,
+#contact {
+  scroll-margin-top: 5rem;
+}
+
 .label {
   @apply text-xs uppercase tracking-widest;
   color: var(--color-muted);
@@ -134,6 +144,36 @@ button {
 
 .text-accent {
   color: var(--color-accent);
+}
+
+/* Keep copy clear where the animated field passes behind the hero. */
+.hero-copy-backdrop {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-copy-backdrop::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -3rem -2rem -2.5rem -2rem;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 28% 48%, rgba(11, 11, 10, 0.88) 0%, rgba(11, 11, 10, 0.62) 42%, rgba(11, 11, 10, 0) 78%);
+}
+
+:root:not(.dark) .hero-copy-backdrop::before {
+  background: radial-gradient(ellipse at 28% 48%, rgba(250, 250, 248, 0.94) 0%, rgba(250, 250, 248, 0.72) 42%, rgba(250, 250, 248, 0) 78%);
+}
+
+@media (max-width: 639px) {
+  .hero-copy-backdrop::before {
+    inset: -2rem -1rem -2rem -1rem;
+    background: radial-gradient(ellipse at 35% 45%, rgba(11, 11, 10, 0.9) 0%, rgba(11, 11, 10, 0.68) 52%, rgba(11, 11, 10, 0) 100%);
+  }
+
+  :root:not(.dark) .hero-copy-backdrop::before {
+    background: radial-gradient(ellipse at 35% 45%, rgba(250, 250, 248, 0.95) 0%, rgba(250, 250, 248, 0.76) 52%, rgba(250, 250, 248, 0) 100%);
+  }
 }
 
 /* ----------------------------------------

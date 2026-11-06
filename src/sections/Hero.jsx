@@ -20,7 +20,7 @@ export default function Hero() {
           animate="visible"
           className="grid grid-cols-1 items-end gap-12 lg:grid-cols-12"
         >
-          <div className="lg:col-span-10">
+          <div className="hero-copy-backdrop lg:col-span-10">
             <motion.div variants={reveal} className="mb-10 flex items-center gap-3">
               <span className="h-px w-8 bg-accent" />
               <p className="label">Software Developer · {personalInfo.location}</p>
@@ -35,7 +35,7 @@ export default function Hero() {
 
             <motion.p
               variants={reveal}
-              className="mt-8 max-w-lg text-base leading-relaxed text-muted sm:text-lg"
+              className="mt-8 max-w-lg text-base leading-relaxed text-ink sm:text-lg"
             >
               {personalInfo.heroDescription}
             </motion.p>
@@ -44,7 +44,7 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={() => scrollTo('projects')}
-                className="inline-flex items-center bg-accent px-5 py-3 label text-on-accent transition-opacity hover:opacity-85"
+                className="inline-flex items-center bg-accent px-5 py-3 label text-black transition-opacity hover:opacity-85"
               >
                 Explore my work
               </button>
